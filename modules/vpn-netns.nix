@@ -30,10 +30,13 @@ let
         ExecStart
         ExecStopPost
       ];
+      startLimitIntervalSec = 0;
 
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
+        Restart = "on-failure";
+        RestartSec = 30;
 
         ExecStart =
           let

@@ -47,6 +47,7 @@ in
             mkIf config.vpnConfinement.enable {
               bindsTo = [ "${vpn}.service" ];
               after = [ "${vpn}.service" ];
+              wantedBy = [ "${vpn}.service" ];
 
               serviceConfig = {
                 NetworkNamespacePath = "/run/netns/${vpn}";
